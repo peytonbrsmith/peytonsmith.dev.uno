@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "peytonsmith.dev",
+  "display": "standalone",
+  "name": "peytonsmith.dev",
+  "short_name": "peytonsmith.dev",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}

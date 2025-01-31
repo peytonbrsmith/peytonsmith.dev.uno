@@ -1,0 +1,105 @@
+<Page xmlns:uen="using:Uno.Extensions.Navigation.UI"
+      xmlns:uer="using:Uno.Extensions.Reactive.UI"
+      xmlns:utu="using:Uno.Toolkit.UI"
+      xmlns:utum="using:Uno.Toolkit.UI.Material"
+      xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+      xmlns:um="using:Uno.Material"
+      xmlns:ut="using:Uno.Themes"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:peytonsmith.dev.Presentation"
+      NavigationCacheMode="Required"
+      x:Class="peytonsmith.dev.Presentation.HomePage"
+      mc:Ignorable="d"
+      Background="{ThemeResource BackgroundBrush}"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <Page.Resources>
+        <x:String x:Key="Icon_Arrow_Right">F1 M 0 10 L 5 5 L 0 0 L 0 10 Z</x:String>
+    </Page.Resources>
+    <ScrollViewer>
+        <Grid utu:SafeArea.Insets="VisibleBounds">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <utu:NavigationBar Content="{Binding Title}"/>
+
+            <utu:AutoLayout Grid.Row="1"
+                            Background="{ThemeResource BackgroundBrush}">
+                <utu:AutoLayout CounterAxisAlignment="Start"
+                                Justify="SpaceBetween"
+                                Orientation="Horizontal">
+                    <utu:AutoLayout Spacing="64"
+                                    CounterAxisAlignment="Start"
+                                    Padding="80,80,0,80"
+                                    Height="386">
+                        <TextBlock Text="👋"
+                                   FontSize="48"
+                                   Margin="0"/>
+                        <utu:AutoLayout Spacing="16"
+                                        CounterAxisAlignment="Start"
+                                        Width="395">
+                            <TextBlock Text="WELCOME TO"
+                                       Foreground="{ThemeResource OnBackgroundLowBrush}"/>
+                            <utu:AutoLayout Spacing="4"
+                                            CounterAxisAlignment="End"
+                                            VerticalAlignment="Bottom"
+                                            Orientation="Horizontal"
+                                            Width="432">
+                                <TextBlock Text="Peyton Smith"
+                                           TextDecorations="Underline"
+                                           FontSize="48"
+                                           Foreground="{ThemeResource OnBackgroundBrush}"/>
+                                <TextBlock Text=".dev"
+                                           FontSize="24"
+                                           Foreground="{ThemeResource OnBackgroundBrush}"/>
+                                <Border/>
+                            </utu:AutoLayout>
+                        </utu:AutoLayout>
+                    </utu:AutoLayout>
+                    <utu:AutoLayout VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    CounterAxisAlignment="Start"
+                                    Width="507"
+                                    Height="386">
+                        <Image utu:AutoLayout.CounterAlignment="Center"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Source="Assets/Images/memoji-3.png"
+                               Margin="0"
+                               Width="386"
+                               Height="386"/>
+                    </utu:AutoLayout>
+                </utu:AutoLayout>
+
+                <utu:AutoLayout
+                    Background="{ThemeResource OnBackgroundLowBrush}"
+                    Orientation="Horizontal"
+                    Spacing="8"
+                    Padding="8">
+                    <utu:AutoLayout Orientation="Horizontal"
+                                    Spacing="8">
+                        <Button Content="Go to Main Page"
+                                AutomationProperties.AutomationId="MainPageButton"
+                                Command="{Binding GoToMain}"/>
+                        <Button Content="Go to Second Page"
+                                AutomationProperties.AutomationId="SecondPageButton"
+                                Command="{Binding GoToSecond}"/>
+                    </utu:AutoLayout>
+                    <utu:AutoLayout Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Spacing="8">
+                        <Button HorizontalAlignment="Right"
+                                Content="My Resume"
+                                AutomationProperties.AutomationId="ResumeButton"
+                                Command="{Binding OpenResume}"/>
+                    </utu:AutoLayout>
+                </utu:AutoLayout>
+
+            </utu:AutoLayout>
+
+        </Grid>
+    </ScrollViewer>
+
+</Page>
