@@ -27,9 +27,9 @@
 
             <utu:AutoLayout Grid.Row="1"
                             Background="{ThemeResource BackgroundBrush}">
-                <utu:AutoLayout CounterAxisAlignment="Start"
+                <utu:AutoLayout CounterAxisAlignment="End"
                                 Justify="SpaceBetween"
-                                Orientation="Horizontal">
+                                Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}">
                     <utu:AutoLayout Spacing="64"
                                     CounterAxisAlignment="Start"
                                     Padding="80,80,0,80"
@@ -73,29 +73,47 @@
                     </utu:AutoLayout>
                 </utu:AutoLayout>
 
-                <utu:AutoLayout
-                    Background="{ThemeResource OnBackgroundLowBrush}"
-                    Orientation="Horizontal"
-                    Spacing="8"
-                    Padding="8">
-                    <utu:AutoLayout Orientation="Horizontal"
+                <Grid utu:SafeArea.Insets="VisibleBounds"
+                      Padding="16,0,16,0"
+                      Background="{ThemeResource OnBackgroundLowBrush}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <utu:AutoLayout Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    Padding="8"
                                     Spacing="8">
-                        <Button Content="Go to Main Page"
+                        <!-- <Button Content="Go to Main Page"
                                 AutomationProperties.AutomationId="MainPageButton"
                                 Command="{Binding GoToMain}"/>
                         <Button Content="Go to Second Page"
                                 AutomationProperties.AutomationId="SecondPageButton"
-                                Command="{Binding GoToSecond}"/>
+                                Command="{Binding GoToSecond}"/> -->
+                        <HyperlinkButton
+                            Content="GitHub"
+                            AutomationProperties.AutomationId="GithubButton"
+                            NavigateUri="https://github.com/peytonbrsmith"/>
+                        <HyperlinkButton
+                            Content="LinkedIn"
+                            AutomationProperties.AutomationId="LinkedInButton"
+                            NavigateUri="https://www.linkedin.com/in/peytonbrsmith/"/>
                     </utu:AutoLayout>
-                    <utu:AutoLayout Orientation="Horizontal"
-                            HorizontalAlignment="Right"
-                            Spacing="8">
-                        <Button HorizontalAlignment="Right"
-                                Content="My Resume"
-                                AutomationProperties.AutomationId="ResumeButton"
-                                Command="{Binding OpenResume}"/>
+                    <utu:AutoLayout Grid.Column="2"
+                                    Padding="8"
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+                        <HyperlinkButton
+                            Content="My Resume"
+                            AutomationProperties.AutomationId="ResumeButton"
+                            NavigateUri="https://www.icloud.com/iclouddrive/01aMbjvnP3VrWlmft97aq2QcA#Peyton_Smith_-_Resume"/>
                     </utu:AutoLayout>
-                </utu:AutoLayout>
+
+                </Grid>
 
             </utu:AutoLayout>
 
