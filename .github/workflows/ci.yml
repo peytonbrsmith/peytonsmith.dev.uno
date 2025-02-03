@@ -26,22 +26,31 @@ jobs:
       - name: Install Dependencies
         timeout-minutes: ${{ fromJSON(env.STEP_TIMEOUT_MINUTES) }}
         uses: "./.github/steps/install_dependencies"
+
+      - name: Set up dependency caching for faster builds
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
       # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-      # - name: Setup MSBuild
-      #   uses: microsoft/setup-msbuild@v1.3.1
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.3.1
 
-      # - name: Build peytonsmith.dev (Debug)
-      #   shell: pwsh
-      #   run: msbuild ./peytonsmith.dev/peytonsmith.dev.csproj /r
+      - name: Build peytonsmith.dev
+        shell: pwsh
+        run: msbuild ./peytonsmith.dev/peytonsmith.dev.csproj /r
 
-      - name: Restore dependencies
-        run: dotnet restore
+      # - name: Restore dependencies
+      #   run: dotnet restore
 
       # - name: Build
       #   run: dotnet build --no-restore
 
-      - name: Build
-        run: dotnet build /target:Source\peytonsmith_dev /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU" -o ./build
+      # - name: Build
+      #   run: dotnet build /target:Source\peytonsmith_dev /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU" -o ./build
 
       - name: Publish
         run: dotnet publish ./peytonsmith.dev/peytonsmith.dev.csproj -f net9.0-browserwasm -c Release -o ./publish
