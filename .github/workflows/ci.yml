@@ -15,8 +15,8 @@ env:
   STEP_TIMEOUT_MINUTES: 60
 
 jobs:
-  smoke_test:
-    name: Smoke Test (Debug Build of peytonsmith.dev)
+  BuildAndPublish:
+    name: BuildAndPublish
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -28,9 +28,17 @@ jobs:
         uses: "./.github/steps/install_dependencies"
 
       # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1.3.1
+      # - name: Setup MSBuild
+      #   uses: microsoft/setup-msbuild@v1.3.1
 
-      - name: Build peytonsmith.dev (Debug)
-        shell: pwsh
-        run: msbuild ./peytonsmith.dev/peytonsmith.dev.csproj /r
+      # - name: Build peytonsmith.dev (Debug)
+      #   shell: pwsh
+      #   run: msbuild ./peytonsmith.dev/peytonsmith.dev.csproj /r
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Publish
+        run: dotnet publish -f net9.0-browserwasm -c Release -o ./publish
