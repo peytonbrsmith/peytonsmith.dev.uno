@@ -42,6 +42,9 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
+      - name: Restore dependencies
+        run: dotnet restore
+
       - name: Set up dependency caching for faster builds
         uses: actions/cache@v3
         with:
