@@ -32,7 +32,7 @@ jobs:
 
       # - name: Build peytonsmith.dev (Debug)
       #   shell: pwsh
-      #   run: msbuild ./peytonsmith.dev/peytonsmith.dev.csproj /r /p:OutputPackagePath="./peytonsmith.dev/build"
+      #   run: msbuild ./peytonsmith.dev/peytonsmith.dev.csproj /r
 
       - name: Restore dependencies
         run: dotnet restore
@@ -41,7 +41,7 @@ jobs:
       #   run: dotnet build --no-restore
 
       - name: Build
-        run: dotnet build /target:Source\peytonsmith_dev /p:OutputPackagePath="./peytonsmith.dev/build" /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU"
+        run: dotnet build /target:Source\peytonsmith_dev /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU" -o ./build
 
       - name: Publish
         run: dotnet publish ./peytonsmith.dev/peytonsmith.dev.csproj -f net9.0-browserwasm -c Release -o ./publish
