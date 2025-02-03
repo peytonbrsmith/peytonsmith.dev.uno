@@ -58,4 +58,8 @@
     <ProjectReference Include="..\peytonsmith.dev.DataContracts\peytonsmith.dev.DataContracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets/Fonts/" />
+  </ItemGroup>
+
 </Project>

@@ -18,23 +18,50 @@
         <x:String x:Key="Icon_Arrow_Right">F1 M 0 10 L 5 5 L 0 0 L 0 10 Z</x:String>
     </Page.Resources>
     <ScrollViewer>
-        <Grid utu:SafeArea.Insets="VisibleBounds">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <utu:NavigationBar Content="{Binding Title}"/>
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Stretch"
+                    utu:SafeArea.Insets="VisibleBounds">
 
-            <utu:AutoLayout Grid.Row="1"
-                            Background="{ThemeResource BackgroundBrush}">
-                <utu:AutoLayout CounterAxisAlignment="End"
+            <utu:AutoLayout>
+                <utu:NavigationBar Content="{Binding Title}"/>
+                <!-- <utu:TabBar SelectedIndex="0"
+                            utu:SafeArea.Insets="VisibleBounds"
+                            Style="{StaticResource ColoredTopTabBarStyle}">
+                    <utu:TabBar.Items>
+                        <utu:TabBarItem Content="HOME">
+                            <utu:TabBarItem.Icon>
+                                <SymbolIcon Symbol="Home"/>
+                            </utu:TabBarItem.Icon>
+                        </utu:TabBarItem>
+                        <utu:TabBarItem Content="ABOUT">
+                            <utu:TabBarItem.Icon>
+                                <SymbolIcon Symbol="Account"/>
+                            </utu:TabBarItem.Icon>
+                        </utu:TabBarItem>
+                        <utu:TabBarItem Content="Contact">
+                            <utu:TabBarItem.Icon>
+                                <SymbolIcon Symbol="Contact"/>
+                            </utu:TabBarItem.Icon>
+                        </utu:TabBarItem>
+                    </utu:TabBar.Items>
+                </utu:TabBar> -->
+
+            </utu:AutoLayout>
+
+            <utu:AutoLayout
+                Padding="64,0"
+                VerticalAlignment="Bottom"
+                PrimaryAxisAlignment="End"
+                Background="{ThemeResource BackgroundBrush}">
+                <utu:AutoLayout CounterAxisAlignment="Center"
                                 Justify="SpaceBetween"
                                 Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}">
                     <utu:AutoLayout Spacing="64"
                                     CounterAxisAlignment="Start"
-                                    Padding="80,80,0,80"
+                                    Padding="80,80,0,0"
                                     Height="386">
                         <TextBlock Text="👋"
+                                   Padding="0,0,0,0"
                                    FontSize="48"
                                    Margin="0"/>
                         <utu:AutoLayout Spacing="16"
@@ -61,23 +88,21 @@
                     <utu:AutoLayout VerticalAlignment="Center"
                                     HorizontalAlignment="Center"
                                     CounterAxisAlignment="Start"
-                                    Width="507"
-                                    Height="386">
+                                    Width="507">
                         <Image utu:AutoLayout.CounterAlignment="Center"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
                                Source="Assets/Images/memoji-3.png"
                                Margin="0"
-                               Width="386"
-                               Height="386"/>
+                               Width="386"/>
                     </utu:AutoLayout>
                 </utu:AutoLayout>
 
-                <Grid utu:SafeArea.Insets="VisibleBounds"
-                      Padding="16,0,16,0"
-                      Background="{ThemeResource OnBackgroundLowBrush}">
+                <Grid Background="{ThemeResource PrimaryContainerColor}"
+                      CornerRadius="24"
+                      Padding="0,0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="64"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -88,36 +113,57 @@
                                     Orientation="Horizontal"
                                     Padding="8"
                                     Spacing="8">
-                        <!-- <Button Content="Go to Main Page"
-                                AutomationProperties.AutomationId="MainPageButton"
-                                Command="{Binding GoToMain}"/>
-                        <Button Content="Go to Second Page"
-                                AutomationProperties.AutomationId="SecondPageButton"
-                                Command="{Binding GoToSecond}"/> -->
-                        <HyperlinkButton
+                        <Button Content="GitHub"
+                                Command="{Binding OpenGitHub}"
+                                Style="{StaticResource FilledButtonStyle}">
+                            <ut:ControlExtensions.Icon>
+                                <FontIcon FontFamily="ms-appx:///Assets/Fonts/Get-Social-Font.ttf"
+                                          Glyph=""/>
+                            </ut:ControlExtensions.Icon>
+                        </Button>
+
+                        <Button Content="LinkedIn"
+                                Command="{Binding OpenLinkedIn}"
+                                Style="{StaticResource FilledButtonStyle}">
+                            <ut:ControlExtensions.Icon>
+                                <FontIcon FontFamily="ms-appx:///Assets/Fonts/Get-Social-Font.ttf"
+                                          Glyph=""/>
+                            </ut:ControlExtensions.Icon>
+                        </Button>
+
+                        <!-- <HyperlinkButton
                             Content="GitHub"
                             AutomationProperties.AutomationId="GithubButton"
                             NavigateUri="https://github.com/peytonbrsmith"/>
+
                         <HyperlinkButton
                             Content="LinkedIn"
                             AutomationProperties.AutomationId="LinkedInButton"
-                            NavigateUri="https://www.linkedin.com/in/peytonbrsmith/"/>
+                            NavigateUri="https://www.linkedin.com/in/peytonbrsmith/"/> -->
                     </utu:AutoLayout>
                     <utu:AutoLayout Grid.Column="2"
                                     Padding="8"
                                     Orientation="Horizontal"
                                     Spacing="8">
-                        <HyperlinkButton
+                        <Button Content="My Resume"
+                                Command="{Binding OpenResume}"
+                                Style="{StaticResource FilledButtonStyle}">
+                            <ut:ControlExtensions.Icon>
+                                <SymbolIcon Symbol="Document"/>
+                            </ut:ControlExtensions.Icon>
+                        </Button>
+                        <!-- <HyperlinkButton
                             Content="My Resume"
                             AutomationProperties.AutomationId="ResumeButton"
-                            NavigateUri="https://www.icloud.com/iclouddrive/01aMbjvnP3VrWlmft97aq2QcA#Peyton_Smith_-_Resume"/>
+                            NavigateUri="https://www.icloud.com/iclouddrive/01aMbjvnP3VrWlmft97aq2QcA#Peyton_Smith_-_Resume"/> -->
                     </utu:AutoLayout>
 
                 </Grid>
 
             </utu:AutoLayout>
 
-        </Grid>
+
+        </StackPanel>
     </ScrollViewer>
 
 </Page>

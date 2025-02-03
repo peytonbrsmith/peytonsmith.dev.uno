@@ -1,3 +1,5 @@
+using Windows.System;
+
 namespace peytonsmith.dev.Presentation;
 
 public partial record HomeModel
@@ -28,6 +30,24 @@ public partial record HomeModel
     public async Task GoToMain()
     {
         await _navigator.NavigateViewModelAsync<MainModel>(this);
+    }
+
+    public async Task OpenGitHub()
+    {
+        // await _navigator.NavigateViewModelAsync<MainModel>(this);
+        await Launcher.LaunchUriAsync(new Uri("https://github.com/peytonbrsmith"));
+    }
+
+    public async Task OpenLinkedIn()
+    {
+        // await _navigator.NavigateViewModelAsync<MainModel>(this);
+        await Launcher.LaunchUriAsync(new Uri("https://www.linkedin.com/in/peytonbrsmith/"));
+    }
+
+    public async Task OpenResume()
+    {
+        // await _navigator.NavigateViewModelAsync<MainModel>(this);
+        await Launcher.LaunchUriAsync(new Uri("https://www.icloud.com/iclouddrive/01aMbjvnP3VrWlmft97aq2QcA#Peyton_Smith_-_Resume"));
     }
 
 }
