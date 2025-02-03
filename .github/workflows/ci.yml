@@ -27,21 +27,21 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.STEP_TIMEOUT_MINUTES) }}
         uses: "./.github/steps/install_dependencies"
       # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1.3.1
+      # - name: Setup MSBuild
+      #   uses: microsoft/setup-msbuild@v1.3.1
 
-      - name: Build peytonsmith.dev (Debug)
-        shell: pwsh
-        run: msbuild ./peytonsmith.dev/peytonsmith.dev.csproj /r
+      # - name: Build peytonsmith.dev (Debug)
+      #   shell: pwsh
+      #   run: msbuild ./peytonsmith.dev/peytonsmith.dev.csproj /r /p:OutputPackagePath="./peytonsmith.dev/build"
 
-      # - name: Restore dependencies
-      #   run: dotnet restore
+      - name: Restore dependencies
+        run: dotnet restore
 
       # - name: Build
       #   run: dotnet build --no-restore
 
-      # - name: Build
-      #   run: dotnet build /target:Source\peytonsmith_dev /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU"
+      - name: Build
+        run: dotnet build /target:Source\peytonsmith_dev /p:OutputPackagePath="./peytonsmith.dev/build" /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU"
 
       - name: Publish
         run: dotnet publish ./peytonsmith.dev/peytonsmith.dev.csproj -f net9.0-browserwasm -c Release -o ./publish
