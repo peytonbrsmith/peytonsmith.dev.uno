@@ -16,10 +16,10 @@ env:
 
 jobs:
   BuildAndPublish:
-    environment:
-      WasmShellOutputPackagePath: "./build"
     name: BuildAndPublish
     runs-on: windows-latest
+    environment:
+      WasmShellOutputPackagePath: "./build"
     steps:
       - uses: actions/checkout@v3
         with:
