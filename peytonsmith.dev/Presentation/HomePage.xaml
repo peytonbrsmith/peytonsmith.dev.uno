@@ -49,7 +49,6 @@
             </utu:AutoLayout>
 
             <utu:AutoLayout
-                Padding="64,0"
                 VerticalAlignment="Bottom"
                 PrimaryAxisAlignment="End"
                 Background="{ThemeResource BackgroundBrush}">
@@ -85,6 +84,7 @@
                             </utu:AutoLayout>
                         </utu:AutoLayout>
                     </utu:AutoLayout>
+                    <!-- <WebView2 Width="600" Height="600" Source="https://my.spline.design/iphone14procopy-0edff88364d66f514d6e2a66529cbf1b/" Background="Transparent" /> -->
                     <utu:AutoLayout VerticalAlignment="Center"
                                     HorizontalAlignment="Center"
                                     CounterAxisAlignment="Start"
