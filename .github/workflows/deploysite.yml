@@ -21,7 +21,8 @@ name: Deploy Site
 
 env:
   DOTNET_VERSION: '9'                 # set this to the .NET Core version to use
-
+  WasmShellOutputPackagePath: "./build"
+  
 on:
   push:
     branches: [ "main" ]
@@ -33,9 +34,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-      WasmShellOutputPackagePath: "./build"
-      
+
     steps:
       - uses: actions/checkout@v4
 
