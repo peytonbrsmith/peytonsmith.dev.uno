@@ -16,6 +16,8 @@ env:
 
 jobs:
   BuildAndPublish:
+    environment:
+      WasmShellOutputPackagePath: "./build"
     name: BuildAndPublish
     runs-on: windows-latest
     steps:
