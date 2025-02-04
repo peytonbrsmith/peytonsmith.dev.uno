@@ -51,15 +51,6 @@
     </UnoFeatures>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)'=='Debug' or '$(IsUiAutomationMappingEnabled)'=='True'">
-    <IsUiAutomationMappingEnabled>True</IsUiAutomationMappingEnabled>
-    <DefineConstants>$(DefineConstants);USE_UITESTS</DefineConstants>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\peytonsmith.dev.DataContracts\peytonsmith.dev.DataContracts.csproj" />
-  </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Assets/Fonts/" />
   </ItemGroup>
