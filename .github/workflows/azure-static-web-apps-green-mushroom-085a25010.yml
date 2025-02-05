@@ -39,11 +39,9 @@ jobs:
           target-platform: "net9.0-browserwasm"
           dotnet-version: "9.0.x"        
       
-      - name: Restore dependencies
-        run: dotnet restore
+      - name: Build
+        run: dotnet build /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU"
 
-      # - name: Build
-      #   run: dotnet build -c Release --no-restore
 
       - name: Publish
         run: dotnet publish ./peytonsmith.dev/peytonsmith.dev.csproj -f net9.0-browserwasm -c Release -o ./publish
