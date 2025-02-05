@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup Condition="$(UsingUnoSdk) != 'true'">
-    <PackageVersion Include="Uno.Wasm.Bootstrap" Version="9.0.8" />
     <PackageVersion Include="Uno.Wasm.Bootstrap.Server" Version="9.0.8" />
   </ItemGroup>
 </Project>
