@@ -94,7 +94,7 @@
                         <Image utu:AutoLayout.CounterAlignment="Center"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
-                               Source="ms-appx:///Assets/memoji-3.png"
+                               Source="{Binding HomeImage}"
                                Margin="0"
                                Width="386"/>
                     </utu:AutoLayout>

@@ -15,9 +15,14 @@ public partial record HomeModel
         Title = "Home";
         Title += $" - {localizer["ApplicationName"]}";
         Title += $" - {appInfo?.Value?.Environment}";
+
+        int img = new Random().Next(1, 6);
+        HomeImage = $"ms-appx:///Assets/Images/memoji-{img}.png";
     }
 
     public string? Title { get; }
+    public string? HomeImage { get; }
+
 
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
 
