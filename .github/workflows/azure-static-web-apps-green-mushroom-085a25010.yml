@@ -42,13 +42,13 @@ jobs:
       # - name: Build
       #   run: dotnet build ./peytonsmith.dev/peytonsmith.dev.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU"
 
-      # - name: Publish
-      #   run: |
-      #     cd peytonsmith.dev
-      #     dotnet publish -c Release -f net9.0-browserwasm -o ./publish
-
       - name: Publish
-        run: dotnet publish -c Release -f net9.0-browserwasm -o ./publish
+        run: |
+          cd peytonsmith.dev
+          dotnet publish -c Release -f net9.0-browserwasm -o ./publish
+
+      # - name: Publish
+      #   run: dotnet publish -c Release -f net9.0-browserwasm -o ./publish
 
       - name: Build And Deploy
         id: builddeploy
