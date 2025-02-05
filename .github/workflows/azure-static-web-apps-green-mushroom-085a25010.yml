@@ -31,10 +31,13 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-            
+
       - name: Install Dependencies
         timeout-minutes: ${{ fromJSON(env.STEP_TIMEOUT_MINUTES) }}
         uses: "./.github/steps/install_dependencies"
+        with:
+          target-platform: "net9.0-browserwasm"
+          dotnet-version: "9.0.x"        
       
       - name: Restore dependencies
         run: dotnet restore
