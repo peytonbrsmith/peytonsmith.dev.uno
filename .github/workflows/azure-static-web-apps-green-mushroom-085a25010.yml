@@ -42,8 +42,8 @@ jobs:
       # - name: Build
       #   run: dotnet build ./peytonsmith.dev/peytonsmith.dev.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU"
 
-      # - name: Publish
-      #   run: dotnet publish -c Release -o ./publish
+      - name: Publish
+        run: dotnet publish -c Release -o ./publish
 
       - name: Build And Deploy
         id: builddeploy
@@ -58,7 +58,6 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "./build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-        run: dotnet publish -c Release -o ./publish
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
