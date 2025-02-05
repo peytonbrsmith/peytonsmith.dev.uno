@@ -40,8 +40,7 @@ jobs:
           dotnet-version: "9.0.x"        
       
       - name: Build
-        run: dotnet build /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU"
-
+        run: dotnet build ./peytonsmith.dev/peytonsmith.dev.csproj /property:GenerateFullPaths=true /consoleloggerparameters:NoSummary /p:Configuration=Release /p:Platform="Any CPU"
 
       - name: Publish
         run: dotnet publish ./peytonsmith.dev/peytonsmith.dev.csproj -f net9.0-browserwasm -c Release -o ./publish
