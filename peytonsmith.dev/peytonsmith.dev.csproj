@@ -63,4 +63,23 @@
     <Folder Include="Assets/Fonts/" />
   </ItemGroup>
 
+  <PropertyGroup>
+      <WasmShellLoadAllSatelliteResources>true</WasmShellLoadAllSatelliteResources>
+  </PropertyGroup>
+
+  <!-- <ItemGroup>
+    <EmbeddedResource Include="appsettings.development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Platforms/WebAssembly/WasmScripts/AppManifest.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Platforms/WebAssembly/wwwroot/staticwebapp.config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup> -->
+
 </Project>
