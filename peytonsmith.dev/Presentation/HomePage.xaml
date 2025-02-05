@@ -23,7 +23,9 @@
                     utu:SafeArea.Insets="VisibleBounds">
 
             <utu:AutoLayout>
+                
                 <utu:NavigationBar Content="{Binding Title}"/>
+
                 <!-- <utu:TabBar SelectedIndex="0"
                             utu:SafeArea.Insets="VisibleBounds"
                             Style="{StaticResource ColoredTopTabBarStyle}">
