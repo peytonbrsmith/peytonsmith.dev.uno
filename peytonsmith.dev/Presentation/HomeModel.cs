@@ -52,7 +52,7 @@ public partial record HomeModel
     public async Task OpenResume()
     {
         // await _navigator.NavigateViewModelAsync<MainModel>(this);
-        await Launcher.LaunchUriAsync(new Uri("https://www.icloud.com/iclouddrive/01aMbjvnP3VrWlmft97aq2QcA#Peyton_Smith_-_Resume"));
+        await Launcher.LaunchUriAsync(new Uri("https://www.icloud.com/iclouddrive/02fa40QeJrBWj6EnEJx_c2ZtA#Peyton_Smith_-_Resume"));
     }
 
 }
