@@ -97,17 +97,19 @@ public partial class App : Application
         views.Register(
             new ViewMap(ViewModel: typeof(ShellModel)),
             new ViewMap<MainPage, MainModel>(),
-            new DataViewMap<SecondPage, SecondModel, Entity>(),
-            new ViewMap<HomePage, HomeModel>()
+            new ViewMap<HomePage, HomeModel>(),
+            new ViewMap<ResumePage, ResumeModel>(),
+            new DataViewMap<SecondPage, SecondModel, Entity>()
         );
 
         routes.Register(
             new RouteMap("", View: views.FindByViewModel<ShellModel>(),
                 Nested:
                 [
-                    new ("Main", View: views.FindByViewModel<MainModel>()),
+                    new ("Main", View: views.FindByViewModel<MainModel>(), IsDefault:true),
+                    new ("Home", View: views.FindByViewModel<HomeModel>()),
+                    new ("Resume", View: views.FindByViewModel<ResumeModel>()),
                     new ("Second", View: views.FindByViewModel<SecondModel>()),
-                    new ("Home", View: views.FindByViewModel<HomeModel>(), IsDefault:true),
                 ]
             )
         );

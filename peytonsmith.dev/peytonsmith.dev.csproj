@@ -1,7 +1,7 @@
 <Project Sdk="Uno.Sdk">
   <PropertyGroup>
-    <!-- <TargetFrameworks>net9.0-maccatalyst;net9.0-windows10.0.26100;net9.0-browserwasm;net9.0-desktop</TargetFrameworks> -->
-    <TargetFrameworks>net9.0-browserwasm;</TargetFrameworks>
+    <TargetFrameworks>net9.0-maccatalyst;net9.0-windows10.0.26100;net9.0-browserwasm;net9.0-desktop</TargetFrameworks>
+    <!-- <TargetFrameworks>net9.0-browserwasm;</TargetFrameworks> -->
 
     <OutputType>Exe</OutputType>
     <UnoSingleProject>true</UnoSingleProject>
@@ -61,10 +61,29 @@
 
   <ItemGroup>
     <PackageVersion Include="Uno.Wasm.Bootstrap" Version="9.0.8" />
+    <PackageVersion Include="Uno.UI.Lottie" Version="5.6.33" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Assets/Fonts/" />
+    <Folder Include="Platforms/WebAssembly/WebContent/" />
+    <Content Include="Platforms/WebAssembly/WebContent/resume.pdf" UnoDeploy="Package" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <!-- Workaround for https://github.com/unoplatform/uno/issues/18552 -->
+    <PlatformTarget Condition=" '$(PlatformTarget)' == '' AND $(Platform) == 'AnyCPU' AND '$(NETCoreSdkRuntimeIdentifier)' == 'win-x86'">x86</PlatformTarget>
+    <PlatformTarget Condition=" '$(PlatformTarget)' == '' AND $(Platform) == 'AnyCPU' AND '$(NETCoreSdkRuntimeIdentifier)' == 'win-x64'">x64</PlatformTarget>
+    <PlatformTarget Condition=" '$(PlatformTarget)' == '' AND $(Platform) == 'AnyCPU' AND '$(NETCoreSdkRuntimeIdentifier)' == 'win-arm64'">arm64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <WasmShellEnableIDBFS>true</WasmShellEnableIDBFS>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <WasmShellCSPConfiguration>default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; frame-src 'self';</WasmShellCSPConfiguration>
+  </PropertyGroup>
+
 
 </Project>

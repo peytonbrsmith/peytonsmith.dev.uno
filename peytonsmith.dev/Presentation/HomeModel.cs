@@ -19,7 +19,6 @@ public partial record HomeModel
         int img = new Random().Next(1, 6);
         HomeImage = $"ms-appx:///Assets/Images/memoji-{img}.png";
     }
-
     public string? Title { get; }
     public string? HomeImage { get; }
 
