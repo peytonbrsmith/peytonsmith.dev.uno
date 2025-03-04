@@ -10,7 +10,7 @@
     xmlns:ut="using:Uno.Themes"
     xmlns:utu="using:Uno.Toolkit.UI"
     xmlns:utum="using:Uno.Toolkit.UI.Material"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="{ThemeResource BackgroundBrush}"
     mc:Ignorable="d">
 
     <Grid utu:SafeArea.Insets="VisibleBounds">
@@ -81,7 +81,7 @@
             </utu:AutoLayout>
 
             <Grid
-                Margin="32"
+                Margin="32,0"
                 Padding="0,0"
                 VerticalAlignment="Bottom"
                 Background="{ThemeResource PrimaryContainerColor}"
