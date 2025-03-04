@@ -11,4 +11,7 @@ global using peytonsmith.dev.DataContracts.Serialization;
 global using peytonsmith.dev.Services.Caching;
 global using peytonsmith.dev.Services.Endpoints;
 global using ApplicationExecutionState = Windows.ApplicationModel.Activation.ApplicationExecutionState;
-[assembly: Uno.Extensions.Reactive.Config.BindableGenerationTool(3)]
+// [assembly: Uno.Extensions.Reactive.Config.BindableGenerationTool(3)]
+global using CommunityToolkit.Mvvm.Input;
+global using CommunityToolkit.Mvvm;
+global using CommunityToolkit.Mvvm.ComponentModel;

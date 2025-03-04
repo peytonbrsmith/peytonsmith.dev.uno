@@ -2,7 +2,7 @@ using Windows.System;
 
 namespace peytonsmith.dev.Presentation;
 
-public partial record HomeModel
+public partial class HomeModel : ObservableObject
 {
     private INavigator _navigator;
 
@@ -22,36 +22,43 @@ public partial record HomeModel
     public string? Title { get; }
     public string? HomeImage { get; }
 
-
-    public IState<string> Name => State<string>.Value(this, () => string.Empty);
-
-    public async Task GoToSecond()
-    {
-        var name = await Name;
-        await _navigator.NavigateViewModelAsync<SecondModel>(this, data: new Entity(name!));
-    }
-
-    public async Task GoToMain()
-    {
-        await _navigator.NavigateViewModelAsync<MainModel>(this);
-    }
-
+    [RelayCommand]
     public async Task OpenGitHub()
     {
         // await _navigator.NavigateViewModelAsync<MainModel>(this);
         await Launcher.LaunchUriAsync(new Uri("https://github.com/peytonbrsmith"));
     }
 
+    [RelayCommand]
     public async Task OpenLinkedIn()
     {
         // await _navigator.NavigateViewModelAsync<MainModel>(this);
         await Launcher.LaunchUriAsync(new Uri("https://www.linkedin.com/in/peytonbrsmith/"));
     }
 
+    [RelayCommand]
     public async Task OpenResume()
     {
         // await _navigator.NavigateViewModelAsync<MainModel>(this);
         await Launcher.LaunchUriAsync(new Uri("https://www.icloud.com/iclouddrive/02fa40QeJrBWj6EnEJx_c2ZtA#Peyton_Smith_-_Resume"));
+    }
+
+    public async Task GoToHome()
+    {
+        _ = _navigator.ShowMessageDialogAsync(this, title: "This is Uno", content: "Hello Uno.Extensions!");
+        await _navigator.NavigateViewModelAsync<HomeViewModel>(this);
+    }
+
+    public async Task GoToAbout()
+    {
+        _ = _navigator.ShowMessageDialogAsync(this, title: "This is Uno", content: "Hello Uno.Extensions!");
+        await _navigator.NavigateViewModelAsync<AboutModel>(this);
+    }
+
+    public async Task GoToContact()
+    {
+        _ = _navigator.ShowMessageDialogAsync(this, title: "This is Uno", content: "Hello Uno.Extensions!");
+        await _navigator.NavigateViewModelAsync<ContactModel>(this);
     }
 
 }

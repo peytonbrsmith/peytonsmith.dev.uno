@@ -40,7 +40,8 @@
       Hosting;
       Toolkit;
       Logging;
-      MVUX;
+      <!-- MVUX; -->
+      MVVM;
       Configuration;
       Http;
       Serialization;
@@ -68,6 +69,11 @@
     <Folder Include="Assets/Fonts/" />
     <Folder Include="Platforms/WebAssembly/WebContent/" />
     <Content Include="Platforms/WebAssembly/WebContent/resume.pdf" UnoDeploy="Package" />
+    <Resource Include="Platforms/WebAssembly/WasmScript/AppManifest.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Markdig" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -85,5 +91,8 @@
     <WasmShellCSPConfiguration>default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; frame-src 'self';</WasmShellCSPConfiguration>
   </PropertyGroup>
 
-
+  <ItemGroup>
+    <UnoSplashScreen Include="Assets\Splash\splash_screen.png" BaseSize="128,128" Color="transparent" />
+    <UnoIcon Include="Assets\Icons\icon.png" BaseSize="128,128" />
+  </ItemGroup>
 </Project>

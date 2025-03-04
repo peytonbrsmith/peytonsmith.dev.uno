@@ -23,6 +23,6 @@
         </AppBarButton>
       </utu:NavigationBar.MainCommand>
     </utu:NavigationBar>
-    <WebView2 Background="{ThemeResource OnBackgroundBrush}" Grid.Row="1" x:Name="ResumeWebView" Source="http://localhost:5000/resume.pdf"/>
+    <WebView2 Background="{ThemeResource OnBackgroundBrush}" Grid.Row="1" x:Name="ResumeWebView" />
   </Grid>
 </Page>
