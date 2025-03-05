@@ -14,6 +14,9 @@ public class ShellViewModel
 	public async Task Start()
 	{
 		// await _navigator.NavigateViewModelAsync<MainViewModel>(this);
-		await _navigator.NavigateViewModelAsync<HomeViewModel>(this);
+		// await _navigator.NavigateRouteAsync(this, "/Main");
+
+		// await _navigator.NavigateViewModelAsync<HomeViewModel>(this);
+		await _navigator.NavigateRouteAsync(this, "/Home");
 	}
 }
