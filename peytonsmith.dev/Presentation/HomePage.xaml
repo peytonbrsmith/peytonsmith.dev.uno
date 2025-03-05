@@ -18,106 +18,107 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <utu:NavigationBar Content="{Binding Title}" />
 
-        <StackPanel
-            Grid.Row="1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Spacing="0">
-            <utu:AutoLayout
-                CounterAxisAlignment="Center"
-                Justify="SpaceBetween"
-                Orientation="{utu:Responsive Narrow=Vertical,
-                                             Wide=Horizontal}">
+        <ScrollViewer Grid.Row="1">
+
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="0">
                 <utu:AutoLayout
-                    Height="386"
-                    Padding="80,80,0,0"
-                    CounterAxisAlignment="Start"
-                    Spacing="64">
-                    <TextBlock
-                        Margin="0"
-                        Padding="0,0,0,0"
-                        FontSize="48"
-                        Text="👋" />
+                    CounterAxisAlignment="Center"
+                    Justify="SpaceBetween"
+                    Orientation="{utu:Responsive Narrow=Vertical,
+                                                 Wide=Horizontal}">
                     <utu:AutoLayout
-                        Width="395"
+                        Height="386"
+                        Padding="80,80,0,0"
                         CounterAxisAlignment="Start"
-                        Spacing="16">
-                        <TextBlock Foreground="{ThemeResource OnBackgroundBrush}" Text="WELCOME TO" />
+                        Spacing="64">
+                        <TextBlock
+                            Margin="0"
+                            Padding="0,0,0,0"
+                            FontSize="48"
+                            Text="👋" />
                         <utu:AutoLayout
-                            Width="432"
-                            VerticalAlignment="Bottom"
-                            CounterAxisAlignment="End"
-                            Orientation="Horizontal"
-                            Spacing="4">
-                            <TextBlock
-                                FontSize="48"
-                                Foreground="{ThemeResource OnBackgroundBrush}"
-                                Text="Peyton Smith"
-                                TextDecorations="Underline" />
-                            <TextBlock
-                                FontSize="24"
-                                Foreground="{ThemeResource OnBackgroundBrush}"
-                                Text=".dev" />
-                            <Border />
+                            Width="395"
+                            CounterAxisAlignment="Start"
+                            Spacing="16">
+                            <TextBlock Foreground="{ThemeResource OnBackgroundBrush}" Text="WELCOME TO" />
+                            <utu:AutoLayout
+                                Width="432"
+                                VerticalAlignment="Bottom"
+                                CounterAxisAlignment="End"
+                                Orientation="Horizontal"
+                                Spacing="4">
+                                <TextBlock
+                                    FontSize="48"
+                                    Foreground="{ThemeResource OnBackgroundBrush}"
+                                    Text="Peyton Smith"
+                                    TextDecorations="Underline" />
+                                <TextBlock
+                                    FontSize="24"
+                                    Foreground="{ThemeResource OnBackgroundBrush}"
+                                    Text=".dev" />
+                                <Border />
+                            </utu:AutoLayout>
                         </utu:AutoLayout>
                     </utu:AutoLayout>
-                </utu:AutoLayout>
-                <utu:AutoLayout
-                    Width="507"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    CounterAxisAlignment="Start">
-                    <Image
-                        Width="386"
-                        Margin="0"
+                    <utu:AutoLayout
+                        Width="507"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        utu:AutoLayout.CounterAlignment="Center"
-                        Source="{Binding HomeImage}" />
+                        CounterAxisAlignment="Start">
+                        <Image
+                            Width="386"
+                            Margin="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            utu:AutoLayout.CounterAlignment="Center"
+                            Source="{Binding HomeImage}" />
+                    </utu:AutoLayout>
                 </utu:AutoLayout>
-            </utu:AutoLayout>
 
-            <Grid
-                Margin="32,0"
-                Padding="0,0"
-                VerticalAlignment="Bottom"
-                Background="{ThemeResource PrimaryContainerColor}"
-                CornerRadius="24">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="64" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <utu:AutoLayout
-                    Grid.Column="0"
-                    Padding="8"
-                    Orientation="Horizontal"
-                    Spacing="8">
-                    <Button
-                        Command="{Binding OpenGitHubCommand}"
-                        Content="GitHub"
-                        Style="{StaticResource FilledButtonStyle}">
-                        <ut:ControlExtensions.Icon>
-                            <FontIcon FontFamily="ms-appx:///Assets/Fonts/Get-Social-Font.ttf" Glyph="" />
-                        </ut:ControlExtensions.Icon>
-                    </Button>
+                <Grid
+                    Margin="32,0"
+                    Padding="0,0"
+                    VerticalAlignment="Bottom"
+                    Background="{ThemeResource PrimaryContainerColor}"
+                    CornerRadius="24">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="64" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <utu:AutoLayout
+                        Grid.Column="0"
+                        Padding="8"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            Command="{Binding OpenGitHubCommand}"
+                            Content="GitHub"
+                            Style="{StaticResource FilledButtonStyle}">
+                            <ut:ControlExtensions.Icon>
+                                <FontIcon FontFamily="ms-appx:///Assets/Fonts/Get-Social-Font.ttf" Glyph="" />
+                            </ut:ControlExtensions.Icon>
+                        </Button>
 
-                    <Button
-                        Command="{Binding OpenLinkedInCommand}"
-                        Content="LinkedIn"
-                        Style="{StaticResource FilledButtonStyle}">
-                        <ut:ControlExtensions.Icon>
-                            <FontIcon FontFamily="ms-appx:///Assets/Fonts/Get-Social-Font.ttf" Glyph="" />
-                        </ut:ControlExtensions.Icon>
-                    </Button>
+                        <Button
+                            Command="{Binding OpenLinkedInCommand}"
+                            Content="LinkedIn"
+                            Style="{StaticResource FilledButtonStyle}">
+                            <ut:ControlExtensions.Icon>
+                                <FontIcon FontFamily="ms-appx:///Assets/Fonts/Get-Social-Font.ttf" Glyph="" />
+                            </ut:ControlExtensions.Icon>
+                        </Button>
 
-                    <!-- <HyperlinkButton
+                        <!-- <HyperlinkButton
                             Content="GitHub"
                             AutomationProperties.AutomationId="GithubButton"
                             NavigateUri="https://github.com/peytonbrsmith"/>
@@ -126,28 +127,30 @@
                             Content="LinkedIn"
                             AutomationProperties.AutomationId="LinkedInButton"
                             NavigateUri="https://www.linkedin.com/in/peytonbrsmith/"/>-->
-                </utu:AutoLayout>
-                <utu:AutoLayout
-                    Grid.Column="2"
-                    Padding="8"
-                    Orientation="Horizontal"
-                    Spacing="8">
-                    <Button
-                        Command="{Binding OpenResumeCommand}"
-                        Content="My Resume"
-                        Style="{StaticResource FilledButtonStyle}">
-                        <ut:ControlExtensions.Icon>
-                            <SymbolIcon Symbol="Document" />
-                        </ut:ControlExtensions.Icon>
-                    </Button>
-                    <!-- <HyperlinkButton
+                    </utu:AutoLayout>
+                    <utu:AutoLayout
+                        Grid.Column="2"
+                        Padding="8"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            Command="{Binding OpenResumeCommand}"
+                            Content="My Resume"
+                            Style="{StaticResource FilledButtonStyle}">
+                            <ut:ControlExtensions.Icon>
+                                <SymbolIcon Symbol="Document" />
+                            </ut:ControlExtensions.Icon>
+                        </Button>
+                        <!-- <HyperlinkButton
                             Content="My Resume"
                             AutomationProperties.AutomationId="ResumeButton"
                             NavigateUri="https://www.icloud.com/iclouddrive/01aMbjvnP3VrWlmft97aq2QcA#Peyton_Smith_-_Resume"/>-->
-                </utu:AutoLayout>
+                    </utu:AutoLayout>
 
-            </Grid>
+                </Grid>
 
-        </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </Page>
