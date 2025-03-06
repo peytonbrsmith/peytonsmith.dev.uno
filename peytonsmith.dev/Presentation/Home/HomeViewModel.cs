@@ -3,6 +3,8 @@
 public partial class HomeViewModel : ObservableObject
 {
 	private INavigator _navigator;
+    	private IStringLocalizer _localizer;
+    private IOptions<AppConfig> _appInfo;
 
 	[ObservableProperty]
 	private string title;
@@ -17,14 +19,22 @@ public partial class HomeViewModel : ObservableObject
 		INavigator navigator)
 	{
 		_navigator = navigator;
+        _localizer = localizer;
+        _appInfo = appInfo;
 
 		Title = "Home";
-        Title += $" - {localizer["ApplicationName"]}";
-        Title += $" - {appInfo?.Value?.Environment}";
+        // Title += $" - {localizer["ApplicationName"]}";
+        // Title += $" - {appInfo?.Value?.Environment}";
 
         int img = new Random().Next(1, 6);
         HomeImage = $"ms-appx:///Assets/Images/memoji-{img}.png";
 	}
+
+    [RelayCommand]
+    public async Task GoToContact()
+    {
+        await _navigator.NavigateViewModelAsync<ContactViewModel>(this);
+    }
 
 	[RelayCommand]
     public async Task OpenGitHub()

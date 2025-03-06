@@ -19,7 +19,20 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <!-- <utu:NavigationBar Content="{Binding Title}" /> -->
+        <utu:AutoLayout Justify="SpaceBetween" Orientation="Horizontal" Padding="16">
+            <Button Content="Home" Style="{StaticResource SurfaceSmallFabStyle}">
+                <ut:ControlExtensions.Icon>
+                    <SymbolIcon Symbol="Home" />
+                </ut:ControlExtensions.Icon>
+            </Button>
+
+<!-- uen:Navigation.Request="/Contact" -->
+            <Button Content="Contact Me" Style="{StaticResource SmallFabStyle}" Command="{Binding GoToContactCommand}" >
+                <ut:ControlExtensions.Icon>
+                    <SymbolIcon Symbol="Account" />
+                </ut:ControlExtensions.Icon>
+            </Button>
+        </utu:AutoLayout>
 
         <ScrollViewer Grid.Row="1">
 
@@ -30,10 +43,13 @@
                 <utu:AutoLayout
                     CounterAxisAlignment="Center"
                     Justify="SpaceBetween"
-                    Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}">
+                    Orientation="{utu:Responsive Narrow=Vertical,
+                                                 Wide=Horizontal}">
                     <utu:AutoLayout
-                        Padding="{utu:Responsive Narrow='0',Wide='80,80,0,0'}"
-                        CounterAxisAlignment="{utu:Responsive Narrow=Center, Wide=Start}"
+                        Padding="{utu:Responsive Narrow='0',
+                                                 Wide='80,80,0,0'}"
+                        CounterAxisAlignment="{utu:Responsive Narrow=Center,
+                                                              Wide=Start}"
                         Spacing="64">
                         <TextBlock
                             Padding="0,32,0,0"
@@ -41,14 +57,16 @@
                             Text="👋" />
                         <utu:AutoLayout
                             Width="395"
-                            CounterAxisAlignment="{utu:Responsive Narrow=Center, Wide=Start}"
+                            CounterAxisAlignment="{utu:Responsive Narrow=Center,
+                                                                  Wide=Start}"
                             Spacing="16">
                             <TextBlock Foreground="{ThemeResource OnBackgroundBrush}" Text="WELCOME TO" />
                             <utu:AutoLayout
                                 Width="432"
-                                PrimaryAxisAlignment="{utu:Responsive Narrow=Center, Wide=Start}"
                                 CounterAxisAlignment="End"
                                 Orientation="Horizontal"
+                                PrimaryAxisAlignment="{utu:Responsive Narrow=Center,
+                                                                      Wide=Start}"
                                 Spacing="4">
                                 <TextBlock
                                     FontSize="48"
@@ -69,8 +87,7 @@
                         VerticalAlignment="Center"
                         CounterAxisAlignment="Start">
                         <Image
-                            Width="386"
-                            Margin="0"
+                            Width="420"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             utu:AutoLayout.CounterAlignment="Center"
@@ -79,18 +96,20 @@
                 </utu:AutoLayout>
 
                 <utu:AutoLayout
-                    Justify="SpaceBetween"
-                    Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}"
                     Margin="32,0,32,32"
                     Padding="0,0"
                     VerticalAlignment="Bottom"
                     Background="{ThemeResource PrimaryContainerColor}"
-                    CornerRadius="24">
-                    
+                    CornerRadius="24"
+                    Justify="SpaceBetween"
+                    Orientation="{utu:Responsive Narrow=Vertical,
+                                                 Wide=Horizontal}">
+
                     <utu:AutoLayout
-                        Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}"
-                        PrimaryAxisAlignment="Start"
                         Padding="8"
+                        Orientation="{utu:Responsive Narrow=Vertical,
+                                                     Wide=Horizontal}"
+                        PrimaryAxisAlignment="Start"
                         Spacing="8">
                         <Button
                             AutomationProperties.AutomationId="GithubButton"
@@ -123,9 +142,10 @@
                             NavigateUri="https://www.linkedin.com/in/peytonbrsmith/"/>-->
                     </utu:AutoLayout>
                     <utu:AutoLayout
-                        Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}"
-                        PrimaryAxisAlignment="End"
                         Padding="8"
+                        Orientation="{utu:Responsive Narrow=Vertical,
+                                                     Wide=Horizontal}"
+                        PrimaryAxisAlignment="End"
                         Spacing="8">
                         <Button
                             AutomationProperties.AutomationId="ResumeButton"
@@ -148,4 +168,5 @@
         </ScrollViewer>
 
     </Grid>
+
 </Page>

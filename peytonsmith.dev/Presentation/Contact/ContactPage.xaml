@@ -1,0 +1,220 @@
+<Page
+    x:Class="peytonsmith.dev.Presentation.ContactPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:peytonsmith.dev.Presentation"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:uen="using:Uno.Extensions.Navigation.UI"
+    xmlns:uer="using:Uno.Extensions.Reactive.UI"
+    xmlns:um="using:Uno.Material"
+    xmlns:ut="using:Uno.Themes"
+    xmlns:utu="using:Uno.Toolkit.UI"
+    xmlns:utum="using:Uno.Toolkit.UI.Material"
+    Background="{ThemeResource BackgroundBrush}"
+    NavigationCacheMode="Required">
+
+    <Grid utu:SafeArea.Insets="VisibleBounds">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <utu:AutoLayout
+                Padding="16"
+                Justify="Stack"
+                Spacing="8"
+                Orientation="Horizontal">
+                <Button
+                    uen:Navigation.Request="-"
+                    Content="Back"
+                    Style="{StaticResource SmallFabStyle}">
+                    <ut:ControlExtensions.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Images/back.png" />
+                    </ut:ControlExtensions.Icon>
+                </Button>
+                <Button
+                    uen:Navigation.Request="-/Home"
+                    Content="Home"
+                    Style="{StaticResource SurfaceSmallFabStyle}">
+                    <ut:ControlExtensions.Icon>
+                        <SymbolIcon Symbol="Home" />
+                    </ut:ControlExtensions.Icon>
+                </Button>
+            </utu:AutoLayout>
+        
+        <TextBlock
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="48"
+            Foreground="{ThemeResource OnBackgroundBrush}"
+            Text="{Binding Title}" />
+        <ScrollViewer
+            Grid.Row="2"
+            Margin="0"
+            Padding="0">
+            <utu:AutoLayout
+                VerticalAlignment="Stretch"
+                CounterAxisAlignment="{utu:Responsive Narrow=Center,
+                                                      Wide=End}"
+                Orientation="{utu:Responsive Narrow=Vertical,
+                                             Wide=Horizontal}"
+                PrimaryAxisAlignment="Center"
+                Spacing="{utu:Responsive Narrow=0,
+                                         Wide=32}">
+                <Image
+                    Width="420"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Source="ms-appx:///Assets/Images/contact.png" />
+                <Grid
+                    Padding="16"
+                    Width="420"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    ColumnSpacing="8"
+                    RowSpacing="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48" />
+                        <RowDefinition Height="48" />
+                        <RowDefinition Height="128" />
+                        <RowDefinition Height="64" />
+                    </Grid.RowDefinitions>
+
+                    <TeachingTip
+                        x:Name="MissingName"
+                        Title="Please add your name."
+                        IsOpen="{Binding NameMissing}"
+                        Subtitle="This field is required."
+                        Target="{Binding ElementName=NameTextBox}" />
+
+                    <TextBox
+                        x:Name="NameTextBox"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        AutomationProperties.AutomationId="NameTextBox"
+                        PlaceholderText="Full Name"
+                        Style="{StaticResource FilledTextBoxStyle}"
+                        Text="{Binding Name, Mode=TwoWay}">
+                        <!-- <ut:ControlExtensions.Icon>
+                            <SymbolIcon Symbol="Contact" />
+                        </ut:ControlExtensions.Icon>-->
+                    </TextBox>
+
+                    <TeachingTip
+                        x:Name="MissingEmail"
+                        Title="Please add your email."
+                        IsOpen="{Binding EmailMissing}"
+                        Subtitle="This field is required."
+                        Target="{Binding ElementName=EmailTextBox}" />
+
+                    <TextBox
+                        x:Name="EmailTextBox"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        AutomationProperties.AutomationId="EmailTextBox"
+                        PlaceholderText="Email"
+                        Style="{StaticResource FilledTextBoxStyle}"
+                        Text="{Binding Email, Mode=TwoWay}">
+                        <!-- <ut:ControlExtensions.Icon>
+                            <SymbolIcon Symbol="Account" />
+                        </ut:ControlExtensions.Icon>-->
+                    </TextBox>
+
+                    <TeachingTip
+                        x:Name="MissingSubject"
+                        Title="Please add a subject for your message."
+                        IsOpen="{Binding SubjectMissing}"
+                        Subtitle="This field is required."
+                        Target="{Binding ElementName=SubjectTextBox}" />
+
+                    <TextBox
+                        x:Name="SubjectTextBox"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        AutomationProperties.AutomationId="SubjectTextBox"
+                        PlaceholderText="Subject"
+                        Style="{StaticResource FilledTextBoxStyle}"
+                        Text="{Binding Subject, Mode=TwoWay}" />
+
+                    <TeachingTip
+                        x:Name="MissingMessage"
+                        Title="You didn't write a message. Did you mean to click send?"
+                        IsOpen="{Binding MessageMissing}"
+                        Subtitle="The message field is required."
+                        Target="{Binding ElementName=MessageTextBox}" />
+
+                    <TextBox
+                        x:Name="MessageTextBox"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        AcceptsReturn="True"
+                        AutomationProperties.AutomationId="MessageTextBox"
+                        PlaceholderText="Type your message here..."
+                        Style="{StaticResource FilledTextBoxStyle}"
+                        Text="{Binding Message, Mode=TwoWay}"
+                        TextWrapping="Wrap" />
+
+                    <Button
+                        Padding="16"
+                        Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Stretch"
+                        Command="{Binding SendMessageCommand}"
+                        Content="Send"
+                        Style="{StaticResource FilledButtonStyle}">
+                        <ut:ControlExtensions.Icon>
+                            <SymbolIcon Symbol="Send" />
+                        </ut:ControlExtensions.Icon>
+                    </Button>
+
+                </Grid>
+            </utu:AutoLayout>
+
+        </ScrollViewer>
+
+        <Grid
+            Grid.Row="3"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="{ThemeResource PrimaryContainerColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Column="1"
+                Height="64"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                Spacing="8">
+                <Image
+                    Width="32"
+                    Height="32"
+                    Margin="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="ms-appx:///Assets/Icons/icon.png" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="peytonsmith.dev"
+                    TextAlignment="Center" />
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+
+</Page>
