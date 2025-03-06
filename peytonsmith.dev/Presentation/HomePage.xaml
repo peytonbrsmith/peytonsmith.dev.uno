@@ -86,20 +86,14 @@
                     VerticalAlignment="Bottom"
                     Background="{ThemeResource PrimaryContainerColor}"
                     CornerRadius="24">
-                    <!-- <Grid.RowDefinitions>
-                        <RowDefinition Height="64" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions> -->
+                    
                     <utu:AutoLayout
                         Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}"
                         PrimaryAxisAlignment="Start"
                         Padding="8"
                         Spacing="8">
                         <Button
+                            AutomationProperties.AutomationId="GithubButton"
                             Command="{Binding OpenGitHubCommand}"
                             Content="GitHub"
                             Style="{StaticResource FilledButtonStyle}">
@@ -109,6 +103,7 @@
                         </Button>
 
                         <Button
+                            AutomationProperties.AutomationId="LinkedInButton"
                             Command="{Binding OpenLinkedInCommand}"
                             Content="LinkedIn"
                             Style="{StaticResource FilledButtonStyle}">
@@ -133,6 +128,7 @@
                         Padding="8"
                         Spacing="8">
                         <Button
+                            AutomationProperties.AutomationId="ResumeButton"
                             Command="{Binding OpenResumeCommand}"
                             Content="My Resume"
                             Style="{StaticResource FilledButtonStyle}">
