@@ -73,6 +73,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MADE.UI.Controls.Validator" />
     <PackageReference Include="Markdig" />
   </ItemGroup>
 
