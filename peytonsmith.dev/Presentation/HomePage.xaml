@@ -19,7 +19,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <utu:NavigationBar Content="{Binding Title}" />
+        <!-- <utu:NavigationBar Content="{Binding Title}" /> -->
 
         <ScrollViewer Grid.Row="1">
 
@@ -30,26 +30,23 @@
                 <utu:AutoLayout
                     CounterAxisAlignment="Center"
                     Justify="SpaceBetween"
-                    Orientation="{utu:Responsive Narrow=Vertical,
-                                                 Wide=Horizontal}">
+                    Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}">
                     <utu:AutoLayout
-                        Height="386"
-                        Padding="80,80,0,0"
-                        CounterAxisAlignment="Start"
+                        Padding="{utu:Responsive Narrow='0',Wide='80,80,0,0'}"
+                        CounterAxisAlignment="{utu:Responsive Narrow=Center, Wide=Start}"
                         Spacing="64">
                         <TextBlock
-                            Margin="0"
-                            Padding="0,0,0,0"
+                            Padding="0,32,0,0"
                             FontSize="48"
                             Text="👋" />
                         <utu:AutoLayout
                             Width="395"
-                            CounterAxisAlignment="Start"
+                            CounterAxisAlignment="{utu:Responsive Narrow=Center, Wide=Start}"
                             Spacing="16">
                             <TextBlock Foreground="{ThemeResource OnBackgroundBrush}" Text="WELCOME TO" />
                             <utu:AutoLayout
                                 Width="432"
-                                VerticalAlignment="Bottom"
+                                PrimaryAxisAlignment="{utu:Responsive Narrow=Center, Wide=Start}"
                                 CounterAxisAlignment="End"
                                 Orientation="Horizontal"
                                 Spacing="4">
@@ -81,24 +78,26 @@
                     </utu:AutoLayout>
                 </utu:AutoLayout>
 
-                <Grid
-                    Margin="32,0"
+                <utu:AutoLayout
+                    Justify="SpaceBetween"
+                    Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}"
+                    Margin="32,0,32,32"
                     Padding="0,0"
                     VerticalAlignment="Bottom"
                     Background="{ThemeResource PrimaryContainerColor}"
                     CornerRadius="24">
-                    <Grid.RowDefinitions>
+                    <!-- <Grid.RowDefinitions>
                         <RowDefinition Height="64" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions> -->
                     <utu:AutoLayout
-                        Grid.Column="0"
+                        Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}"
+                        PrimaryAxisAlignment="Start"
                         Padding="8"
-                        Orientation="Horizontal"
                         Spacing="8">
                         <Button
                             Command="{Binding OpenGitHubCommand}"
@@ -129,9 +128,9 @@
                             NavigateUri="https://www.linkedin.com/in/peytonbrsmith/"/>-->
                     </utu:AutoLayout>
                     <utu:AutoLayout
-                        Grid.Column="2"
+                        Orientation="{utu:Responsive Narrow=Vertical, Wide=Horizontal}"
+                        PrimaryAxisAlignment="End"
                         Padding="8"
-                        Orientation="Horizontal"
                         Spacing="8">
                         <Button
                             Command="{Binding OpenResumeCommand}"
@@ -147,7 +146,7 @@
                             NavigateUri="https://www.icloud.com/iclouddrive/01aMbjvnP3VrWlmft97aq2QcA#Peyton_Smith_-_Resume"/>-->
                     </utu:AutoLayout>
 
-                </Grid>
+                </utu:AutoLayout>
 
             </StackPanel>
         </ScrollViewer>
