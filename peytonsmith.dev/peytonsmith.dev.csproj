@@ -72,11 +72,6 @@
     <Resource Include="Platforms/WebAssembly/WasmScript/AppManifest.js" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MADE.UI.Controls.Validator" />
-    <PackageReference Include="Markdig" />
-  </ItemGroup>
-
   <PropertyGroup>
     <!-- Workaround for https://github.com/unoplatform/uno/issues/18552 -->
     <PlatformTarget Condition=" '$(PlatformTarget)' == '' AND $(Platform) == 'AnyCPU' AND '$(NETCoreSdkRuntimeIdentifier)' == 'win-x86'">x86</PlatformTarget>
