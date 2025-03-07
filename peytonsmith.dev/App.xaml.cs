@@ -109,6 +109,7 @@ public partial class App : Application
         views.Register(
             new ViewMap(ViewModel: typeof(ShellViewModel)),
             new ViewMap<HomePage, HomeViewModel>(),
+            new ViewMap<AboutPage, AboutViewModel>(),
             new ViewMap<ContactPage, ContactViewModel>(),
             new ViewMap<MainPage, MainViewModel>(),
             new ViewMap<CControlNavigationPage>(),

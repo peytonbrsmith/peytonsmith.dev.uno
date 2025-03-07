@@ -120,4 +120,7 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>peytonsmith.dev</value>
   </data>
+  <data name="AboutBody" xml:space="preserve">
+    <value>I am passionate about learning and contributing to the ongoing growth of the technology industry by creating innovative tools that not only enhance our daily lives but also provide engaging and enjoyable experiences.</value>
+  </data>
 </root>

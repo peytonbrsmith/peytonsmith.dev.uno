@@ -1,0 +1,140 @@
+<Page
+    x:Class="peytonsmith.dev.Presentation.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:peytonsmith.dev.Presentation"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:uen="using:Uno.Extensions.Navigation.UI"
+    xmlns:uer="using:Uno.Extensions.Reactive.UI"
+    xmlns:um="using:Uno.Material"
+    xmlns:ut="using:Uno.Themes"
+    xmlns:utu="using:Uno.Toolkit.UI"
+    xmlns:utum="using:Uno.Toolkit.UI.Material"
+    Background="{ThemeResource BackgroundBrush}"
+    NavigationCacheMode="Required">
+
+    <Grid utu:SafeArea.Insets="VisibleBounds">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <utu:AutoLayout
+            Padding="16"
+            Justify="SpaceBetween"
+            Orientation="Horizontal"
+            Spacing="8">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button
+                    uen:Navigation.Request="-"
+                    Content="Back"
+                    Style="{StaticResource SmallFabStyle}">
+                    <ut:ControlExtensions.Icon>
+                        <SymbolIcon Symbol="Back" />
+                    </ut:ControlExtensions.Icon>
+                </Button>
+                <Button
+                    uen:Navigation.Request="-/Home"
+                    Content="Home"
+                    Style="{StaticResource SurfaceSmallFabStyle}">
+                    <ut:ControlExtensions.Icon>
+                        <SymbolIcon Symbol="Home" />
+                    </ut:ControlExtensions.Icon>
+                </Button>
+            </StackPanel>
+
+            <Button
+                Command="{Binding GoToContactCommand}"
+                Content="Contact Me"
+                Style="{StaticResource SmallFabStyle}">
+                <ut:ControlExtensions.Icon>
+                    <SymbolIcon Symbol="Account" />
+                </ut:ControlExtensions.Icon>
+            </Button>
+        </utu:AutoLayout>
+
+        <TextBlock
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Foreground="{ThemeResource OnBackgroundBrush}"
+            FontSize="48"
+            Text="{Binding Title}" />
+        <ScrollViewer
+            Grid.Row="2"
+            Margin="0"
+            Padding="0">
+            <utu:AutoLayout
+                Padding="16"
+                VerticalAlignment="Stretch"
+                CounterAxisAlignment="Center"
+                Orientation="{utu:Responsive Narrow=Vertical,
+                                             Wide=Horizontal}"
+                PrimaryAxisAlignment="Center"
+                Spacing="{utu:Responsive Narrow=16,
+                                         Wide=32}">
+                <Border
+                    Width="420"
+                    Padding="8"
+                    Background="{ThemeResource PrimaryContainerColor}"
+                    CornerRadius="24">
+                    <Image Source="ms-appx:///Assets/Images/headshot.jpg" />
+
+                </Border>
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Spacing="8">
+                    <TextBlock FontSize="32" Text="Peyton Smith" Foreground="{ThemeResource PrimaryColor}" />
+                    <Rectangle Height="4" Width="420"  Background="{ThemeResource OnBackgroundBrush}" />
+                    <TextBlock
+                        Width="420"
+                        TextAlignment="Left"
+                        VerticalAlignment="Stretch"
+                        FontSize="16"
+                        Style="{StaticResource BodyLarge}"
+                        Text="{Binding AboutText}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </utu:AutoLayout>
+
+        </ScrollViewer>
+
+        <Grid
+            Grid.Row="3"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="{ThemeResource PrimaryContainerColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Column="1"
+                Height="64"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                Spacing="8">
+                <Image
+                    Width="32"
+                    Height="32"
+                    Margin="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="ms-appx:///Assets/Icons/icon.png" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="peytonsmith.dev"
+                    TextAlignment="Center" />
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+
+</Page>

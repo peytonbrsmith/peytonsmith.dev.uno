@@ -19,15 +19,43 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <utu:AutoLayout Justify="SpaceBetween" Orientation="Horizontal" Padding="16">
-            <Button Content="Home" Style="{StaticResource SurfaceSmallFabStyle}">
-                <ut:ControlExtensions.Icon>
-                    <SymbolIcon Symbol="Home" />
-                </ut:ControlExtensions.Icon>
-            </Button>
+        <utu:AutoLayout
+            Padding="16"
+            Justify="SpaceBetween"
+            Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button
+                    uen:Navigation.Request="-"
+                    Content="Back"
+                    Style="{StaticResource SmallFabStyle}"
+                    Visibility="Collapsed">
+                    <ut:ControlExtensions.Icon>
+                        <SymbolIcon Symbol="Back" />
+                    </ut:ControlExtensions.Icon>
+                </Button>
+                <Button
+                    uen:Navigation.Request="-/Home"
+                    Content="Home"
+                    Style="{StaticResource SurfaceSmallFabStyle}">
+                    <ut:ControlExtensions.Icon>
+                        <SymbolIcon Symbol="Home" />
+                    </ut:ControlExtensions.Icon>
+                </Button>
+                <Button
+                    uen:Navigation.Request="-/About"
+                    Content="About"
+                    Style="{StaticResource SurfaceSmallFabStyle}">
+                    <ut:ControlExtensions.Icon>
+                        <SymbolIcon Symbol="Contact" />
+                    </ut:ControlExtensions.Icon>
+                </Button>
+            </StackPanel>
 
-<!-- uen:Navigation.Request="/Contact" -->
-            <Button Content="Contact Me" Style="{StaticResource SmallFabStyle}" Command="{Binding GoToContactCommand}" >
+            <!--  uen:Navigation.Request="/Contact"  -->
+            <Button
+                Command="{Binding GoToContactCommand}"
+                Content="Contact Me"
+                Style="{StaticResource SmallFabStyle}">
                 <ut:ControlExtensions.Icon>
                     <SymbolIcon Symbol="Account" />
                 </ut:ControlExtensions.Icon>
