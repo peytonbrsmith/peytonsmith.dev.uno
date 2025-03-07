@@ -28,27 +28,27 @@
             Spacing="8">
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <Button
-                    uen:Navigation.Request="-"
-                    Content="Back"
-                    Style="{StaticResource SmallFabStyle}">
-                    <ut:ControlExtensions.Icon>
-                        <SymbolIcon Symbol="Back" />
-                    </ut:ControlExtensions.Icon>
-                </Button>
-                <Button
-                    uen:Navigation.Request="-/Home"
+                    uen:Navigation.Request="/Home"
                     Content="Home"
                     Style="{StaticResource SurfaceSmallFabStyle}">
                     <ut:ControlExtensions.Icon>
                         <SymbolIcon Symbol="Home" />
                     </ut:ControlExtensions.Icon>
                 </Button>
+                <Button
+                    uen:Navigation.Request="/About"
+                    Content="About"
+                    Style="{StaticResource SmallFabStyle}">
+                    <ut:ControlExtensions.Icon>
+                        <SymbolIcon Symbol="Contact" />
+                    </ut:ControlExtensions.Icon>
+                </Button>
             </StackPanel>
 
             <Button
-                Command="{Binding GoToContactCommand}"
+                uen:Navigation.Request="/Contact"
                 Content="Contact Me"
-                Style="{StaticResource SmallFabStyle}">
+                Style="{StaticResource SecondarySmallFabStyle}">
                 <ut:ControlExtensions.Icon>
                     <SymbolIcon Symbol="Account" />
                 </ut:ControlExtensions.Icon>
@@ -75,14 +75,14 @@
                 PrimaryAxisAlignment="Center"
                 Spacing="{utu:Responsive Narrow=16,
                                          Wide=32}">
-                <Border
+                <Grid
                     Width="420"
                     Padding="8"
                     Background="{ThemeResource PrimaryContainerColor}"
-                    CornerRadius="24">
-                    <Image Source="ms-appx:///Assets/Images/headshot.jpg" />
+                    CornerRadius="8">
+                    <Image Source="ms-appx:///Assets/Images/headshot.png" />
 
-                </Border>
+                </Grid>
                 <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Spacing="8">
                     <TextBlock FontSize="32" Text="Peyton Smith" Foreground="{ThemeResource PrimaryColor}" />
                     <Rectangle Height="4" Width="420"  Background="{ThemeResource OnBackgroundBrush}" />

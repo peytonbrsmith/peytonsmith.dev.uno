@@ -34,15 +34,15 @@
                     </ut:ControlExtensions.Icon>
                 </Button>
                 <Button
-                    uen:Navigation.Request="-/Home"
+                    uen:Navigation.Request="/Home"
                     Content="Home"
-                    Style="{StaticResource SurfaceSmallFabStyle}">
+                    Style="{StaticResource SmallFabStyle}">
                     <ut:ControlExtensions.Icon>
                         <SymbolIcon Symbol="Home" />
                     </ut:ControlExtensions.Icon>
                 </Button>
                 <Button
-                    uen:Navigation.Request="-/About"
+                    uen:Navigation.Request="/About"
                     Content="About"
                     Style="{StaticResource SurfaceSmallFabStyle}">
                     <ut:ControlExtensions.Icon>
@@ -53,9 +53,9 @@
 
             <!--  uen:Navigation.Request="/Contact"  -->
             <Button
-                Command="{Binding GoToContactCommand}"
+                uen:Navigation.Request="/Contact"
                 Content="Contact Me"
-                Style="{StaticResource SmallFabStyle}">
+                Style="{StaticResource SecondarySmallFabStyle}">
                 <ut:ControlExtensions.Icon>
                     <SymbolIcon Symbol="Account" />
                 </ut:ControlExtensions.Icon>
@@ -191,6 +191,130 @@
                     </utu:AutoLayout>
 
                 </utu:AutoLayout>
+
+                <StackPanel
+                    Margin="32"
+                    Padding="32"
+                    BorderBrush="{ThemeResource PrimaryContainerColor}"
+                    BorderThickness="5"
+                    CornerRadius="10"
+                    Orientation="{utu:Responsive Narrow=Vertical,
+                                                 Wide=Horizontal}">
+
+                    <utu:Card
+                        AutomationProperties.AutomationId="DotnetCard"
+                        HeaderContent=".NET"
+                        MediaContent="ms-appx:///Assets/Images/dotnet.png"
+                        Style="{StaticResource OutlinedCardStyle}"
+                        SubHeaderContent="Innovative .NET solutions for your business."
+                        SupportingContent="I specialize in creating .NET applications that are tailored to your business needs. I have experience with ASP.NET Core, Xamarin, and more.">
+                        <utu:Card.HeaderContentTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Margin="16,14,16,0"
+                                    Style="{ThemeResource TitleLarge}"
+                                    Text="{Binding}" />
+                            </DataTemplate>
+                        </utu:Card.HeaderContentTemplate>
+                        <utu:Card.SubHeaderContentTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Margin="16,0,16,14"
+                                    Style="{ThemeResource BodySmall}"
+                                    Text="{Binding}" />
+                            </DataTemplate>
+                        </utu:Card.SubHeaderContentTemplate>
+                        <utu:Card.SupportingContentTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock
+                                        Margin="16,4,16,0"
+                                        Style="{ThemeResource BodySmall}"
+                                        Text="{Binding}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <HyperlinkButton
+                                            Margin="6"
+                                            Padding="10,2"
+                                            AutomationProperties.AutomationId="dotnetlink"
+                                            Content="dotnet.microsoft.com"
+                                            NavigateUri="https://dotnet.microsoft.com/"
+                                            Style="{StaticResource TextButtonStyle}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </utu:Card.SupportingContentTemplate>
+                        <utu:Card.MediaContentTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    MaxHeight="128"
+                                    Padding="32">
+                                    <Image Source="{Binding}" Stretch="Uniform" />
+                                </Frame>
+                            </DataTemplate>
+                        </utu:Card.MediaContentTemplate>
+                    </utu:Card>
+
+                    <utu:Card
+                        AutomationProperties.AutomationId="MobileCard"
+                        HeaderContent="Cross-Platform Development"
+                        MediaContent="ms-appx:///Assets/Images/uno.png"
+                        Style="{StaticResource OutlinedCardStyle}"
+                        SubHeaderContent="Cross-platform applications for your business."
+                        SupportingContent="Using .NET MAUI and UNO Platform, I create mobile applications that run on any device or platform.">
+                        <utu:Card.HeaderContentTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Margin="16,14,16,0"
+                                    Style="{ThemeResource TitleLarge}"
+                                    Text="{Binding}" />
+                            </DataTemplate>
+                        </utu:Card.HeaderContentTemplate>
+                        <utu:Card.SubHeaderContentTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Margin="16,0,16,14"
+                                    Style="{ThemeResource BodySmall}"
+                                    Text="{Binding}" />
+                            </DataTemplate>
+                        </utu:Card.SubHeaderContentTemplate>
+                        <utu:Card.SupportingContentTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock
+                                        Margin="16,4,16,0"
+                                        Style="{ThemeResource BodySmall}"
+                                        Text="{Binding}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <HyperlinkButton
+                                            Margin="6"
+                                            Padding="10,2"
+                                            AutomationProperties.AutomationId="mauilink"
+                                            Content=".NET MAUI"
+                                            NavigateUri="https://dotnet.microsoft.com/en-us/apps/maui"
+                                            Style="{StaticResource TextButtonStyle}" />
+                                        <HyperlinkButton
+                                            Margin="6"
+                                            Padding="10,2"
+                                            AutomationProperties.AutomationId="unolink"
+                                            Content="Uno Platform"
+                                            NavigateUri="https://platform.uno/"
+                                            Style="{StaticResource TextButtonStyle}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </utu:Card.SupportingContentTemplate>
+                        <utu:Card.MediaContentTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    MaxHeight="128"
+                                    Padding="32">
+                                    <Image Source="{Binding}" Stretch="Uniform" />
+                                </Frame>
+                            </DataTemplate>
+                        </utu:Card.MediaContentTemplate>
+                    </utu:Card>
+
+                </StackPanel>
 
             </StackPanel>
         </ScrollViewer>
