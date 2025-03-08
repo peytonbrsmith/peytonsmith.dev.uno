@@ -41,7 +41,7 @@ public partial class App : Application
                     // Uno Platform namespace filter groups
                     // Uncomment individual methods to see more detailed logging
                     //// Generic Xaml events
-                    logBuilder.XamlLogLevel(LogLevel.Debug);
+                    // logBuilder.XamlLogLevel(LogLevel.Debug);
                     //// Layout specific messages
                     logBuilder.XamlLayoutLogLevel(LogLevel.Debug);
                     //// Storage messages
@@ -107,7 +107,9 @@ public partial class App : Application
         );
 
         views.Register(
-            new ViewMap(ViewModel: typeof(ShellViewModel)),
+            // new ViewMap(ViewModel: typeof(ShellViewModel)),
+            new ViewMap<Shell, ShellViewModel>(),
+            new ViewMap<RootPage, RootViewModel>(),
             new ViewMap<HomePage, HomeViewModel>(),
             new ViewMap<AboutPage, AboutViewModel>(),
             new ViewMap<ContactPage, ContactViewModel>(),
@@ -164,10 +166,20 @@ public partial class App : Application
             new RouteMap("", View: views.FindByViewModel<ShellViewModel>(),
                 Nested:
                 [
-                    new ("Home", View: views.FindByViewModel<HomeViewModel>()),
-                    // new ("About", View: views.FindByViewModel<AboutModel>()),
-                    // new ("Contact", View: views.FindByViewModel<ContactModel>()),
+                    // new ("Root", View: views.FindByViewModel<RootViewModel>(),
+                    //     Nested:
+                    //     [
+                    //         new ("Home", View: views.FindByViewModel<HomeViewModel>(), IsDefault: true),
+                    //         new ("About", View: views.FindByViewModel<AboutViewModel>()),
+                    //         new ("Contact", View: views.FindByViewModel<ContactViewModel>()),
+                    //     ]
+                    // ),
 
+                    new ("Home", View: views.FindByViewModel<HomeViewModel>()),
+                    new ("About", View: views.FindByViewModel<AboutViewModel>()),
+                    new ("Contact", View: views.FindByViewModel<ContactViewModel>()),
+
+#if DEBUG
 					new ("Main", View: views.FindByViewModel<MainViewModel>(),
                         Nested:
                         [
@@ -243,6 +255,7 @@ public partial class App : Application
 							#endregion
 						]
                     )
+#endif
                 ]
             )
         );
